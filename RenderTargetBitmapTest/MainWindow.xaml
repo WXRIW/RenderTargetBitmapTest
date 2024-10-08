@@ -1,0 +1,42 @@
+﻿<Window x:Class="RenderTargetBitmapTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RenderTargetBitmapTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Raw"/>
+        <Viewbox>
+            <Grid Name="GridInViewBox" Width="120" Height="50">
+                <TextBlock Text="Blurred text" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <BlurEffect Radius="10"/>
+                        <!--<DropShadowEffect/>-->
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+        </Viewbox>
+        <Button Grid.Row="1" Content="Render" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Click="Button_Click"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Render Image" Grid.Column="0"/>
+            <Image Grid.Row="1" Grid.Column="0" Name="ImageRender"/>
+            <TextBlock Text="Render Window" Grid.Column="1"/>
+            <Image Grid.Row="1" Grid.Column="1" Name="ImageWindowRender"/>
+        </Grid>
+    </Grid>
+</Window>
